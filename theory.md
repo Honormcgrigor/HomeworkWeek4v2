@@ -15,14 +15,15 @@ pr = pull request
 repo = repository <-THIS COULD BE WRONG
 
 # Question 5
-git pull <- GET FULL SYNTAX
+git pull
 
 # Question 6
-I DON'T KNOW
+git fetch
 
 # Question 7
-push?
+git push 
 
 # Question 8
-what does git command need? maybe git push?
+Prior to 'git commit', you need to stage the file by using 'git add', and selecting the file to be added. 
+You also need a message in 'git commit' (git commit -m "MESSAGE")
 

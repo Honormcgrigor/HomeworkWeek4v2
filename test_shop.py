@@ -1,29 +1,35 @@
 # Test 1:
 from unittest import TestCase
-from test_shop.py import optional_exit_function()
+from shop import optional_exit
+from shop import shop, what_to_buy
 
-# optional_exit = input('If you would like to exit the shop, type exit. Otherwise, please press enter and continue browsing.')
-# if optional_exit == 'exit':
-#     raise SystemExit
-# else:
-#     print(f'The available items to purchase are \n {shop}. ')
 class TestExit(TestCase):
-    def exit_test(self):
+    def test_exit(self):
      expected = 'exit'
-     result = optional_exit_function()
+     result = optional_exit
      self.assertEqual(expected, result)
 
 
-# def remain_test(optional_exit):
-#     if optional_exit != 'exit':
-#         return True
-#     return False
+# class TestExit(TestCase):
+#     def remain_test(self):
+#         if optional_exit == 'exit':
+#             return True
+#         return False
 
 # Test 2:
 # try:
 #     print(f'You have chosen {what_to_buy}. The price of this item is {shop[what_to_buy]}.')
 # except KeyError:  # for some reason this should be a value error could do if KeyError, raise ValueError?
 #     print('That item is not in the shop.')
+
+class TestInDictionary(TestCase):
+    def test_in_dictionary(self):
+        expected = what_to_buy
+        result = shop
+        self.assertNotIn(self, expected, shop, 'That item is not in the shop.')
+
+
+
 
 # Test 3: - break down into smaller blocks
 

@@ -7,17 +7,12 @@ customer_budget = 100
 
 print(f'Welcome! The available items to purchase are \n {shop}. ')
 
-
-def optional_exit_function():
-    optional_exit = input(
-        'If you would like to exit the shop, type exit. Otherwise, please press enter and continue browsing.')
-    if optional_exit == 'exit':
-        raise SystemExit
-    else:
-        print(f'The available items to purchase are \n {shop}. ')
-
-
-optional_exit_function()
+optional_exit = input(
+    'If you would like to exit the shop, type exit. Otherwise, please press enter and continue browsing.')
+if optional_exit == 'exit':
+    raise SystemExit
+else:
+    print(f'The available items to purchase are \n {shop}. ')
 
 what_to_buy = input('Which item would you like to buy? ')
 
