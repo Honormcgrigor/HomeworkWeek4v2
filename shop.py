@@ -1,6 +1,6 @@
 shop = {'hiking boots': 27.50,
         'tent': 49.99,
-        'rucksack': 105,
+        'rucksack': 150,
         'sleeping back': 89}
 
 customer_budget = 100
@@ -20,12 +20,33 @@ try:
 except KeyError:  # for some reason this should be a value error could do if KeyError, raise ValueError?
     print('That item is not in the shop.')
 
-try:
-    if shop[what_to_buy] > customer_budget:
-        raise ValueError
-    else:
-        print('Here''s your item')
-except ValueError:
-    print('This item appears to be over your budget.')
-    more_money = input('Do you have more money? If so, please enter the amount you would like to add to your budget. ')
-    new_budget = customer_budget + int(more_money)
+
+class TooManyAttemptsError(Exception):
+    pass
+attempts = 0
+
+while attempts < 3:
+    try:
+        try:
+            if shop[what_to_buy] > customer_budget:
+                raise ValueError
+            else:
+                print('Here is your item!')
+                raise SystemExit
+        except ValueError:
+            print('This item appears to be over your budget.')
+            more_money = input('Do you have more money? If so, please enter the amount you would like to add to your budget. ')
+            customer_budget += int(more_money)
+            attempts += 1
+    except TooManyAttemptsError:
+        raise SystemExit
+
+
+
+
+
+
+
+
+
+
