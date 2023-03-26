@@ -7,11 +7,17 @@ customer_budget = 100
 
 print(f'Welcome! The available items to purchase are \n {shop}. ')
 
-optional_exit = input('If you would like to exit the shop, type exit. Otherwise, please press enter and continue browsing.')
-if optional_exit == 'exit':
-    raise SystemExit
-else:
-    print(f'The available items to purchase are \n {shop}. ')
+
+def optional_exit_function():
+    optional_exit = input(
+        'If you would like to exit the shop, type exit. Otherwise, please press enter and continue browsing.')
+    if optional_exit == 'exit':
+        raise SystemExit
+    else:
+        print(f'The available items to purchase are \n {shop}. ')
+
+
+optional_exit_function()
 
 what_to_buy = input('Which item would you like to buy? ')
 
@@ -23,6 +29,8 @@ except KeyError:  # for some reason this should be a value error could do if Key
 
 class TooManyAttemptsError(Exception):
     pass
+
+
 attempts = 0
 
 while attempts < 3:
@@ -35,18 +43,10 @@ while attempts < 3:
                 raise SystemExit
         except ValueError:
             print('This item appears to be over your budget.')
-            more_money = input('Do you have more money? If so, please enter the amount you would like to add to your budget. ')
+            more_money = input(
+                'Do you have more money? If so, please enter the amount you would like to add to your budget. ')
             customer_budget += int(more_money)
             attempts += 1
     except TooManyAttemptsError:
+        print('You do not have enough money.')
         raise SystemExit
-
-
-
-
-
-
-
-
-
-
