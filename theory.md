@@ -5,14 +5,11 @@ Git is an example of a version control system.
 GitHub
 
 # Question 3
-add
-commit
-push
-THIS COULD BE WRONG
+workspace, staging, local repository
 
 # Question 4
 pr = pull request
-repo = repository <-THIS COULD BE WRONG
+repo = repository 
 
 # Question 5
 git pull
