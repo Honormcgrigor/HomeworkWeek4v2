@@ -1,9 +1,7 @@
 shop = {'hiking boots': 27.50,
-        'tent': 49.99,
+        'tent': 49.00,
         'rucksack': 150,
-        'sleeping back': 89}
-
-customer_budget = 100
+        'sleeping bag': 89}
 
 def optional_exit_function():
     optional_exit = input(
@@ -13,12 +11,11 @@ def optional_exit_function():
     else:
         return(print(f'The available items to purchase are \n {shop}. '))
 
-def what_to_buy_function():
-    what_to_buy = input('Which item would you like to buy? ')
+def item_in_stock(what_to_buy):
     try:
         print(f'You have chosen {what_to_buy}. The price of this item is {shop[what_to_buy]}.')
     except KeyError:  # for some reason this should be a value error could do if KeyError, raise ValueError?
-        return(print('That item is not in the shop.'))
+        (print('That item is not in the shop.'))
 
 def attempts_function(what_to_buy, customer_budget):
     class TooManyAttemptsError(Exception):
@@ -42,7 +39,10 @@ def attempts_function(what_to_buy, customer_budget):
             print('You do not have enough money.')
             raise SystemExit
 
+
 print(f'Welcome! The available items to purchase are \n {shop}. ')
 optional_exit_function()
-what_to_buy_function()
-attempts_function('rucksack', 100)
+customer_budget = int(input('What is your budget? '))
+what_to_buy = input('Which item would you like to buy? ')
+item_in_stock(what_to_buy)
+attempts_function(what_to_buy, customer_budget)
